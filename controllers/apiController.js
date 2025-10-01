@@ -1,4 +1,4 @@
-let items = [];
+const items = [];
 
 const getItems = (req, res) => {
   res.json(items);
