@@ -30,7 +30,7 @@ async function verifyFirebaseToken(token) {
 }
 
 const jwtFilter = (paths = []) => {
-    return (req, res, next) => {
+    return async (req, res, next) => {
         if (paths.includes(req.path)) return next();
 
         const authHeader = req.headers.authorization;
@@ -42,7 +42,7 @@ const jwtFilter = (paths = []) => {
         const token = authHeader.split(" ")[1];
         console.log("token: ",token)
         try {
-            req.user = verifyFirebaseToken(token);
+            req.user = await verifyFirebaseToken(token);
             console.log(req.user);
             next();
         } catch (err) {

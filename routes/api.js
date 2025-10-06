@@ -16,7 +16,7 @@ router.get("/protected", (req, res) => {
     res.json({ message: "Protected aaaaaaaaaaa", user: req.user });
 });
 
-router.post("/api/register", (req, res) => {
+router.post("/register", (req, res) => {
     res.json({ message: "Register endpoint" });
 });
 
